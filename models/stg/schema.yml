@@ -1,7 +1,24 @@
 
-# version: 2
+version: 2
 
-# models:
+models:
+  - name: src_channel
+    description: "Stagging for Channel"
+
+  - name: src_video
+    description: "Stagging for Video"
+
+  - name: src_video_hashtags
+    description: "Stagging for Video hashtags"
+
+  - name: src_caption
+    description: "Stagging for Caption"
+
+  - name: src_caption_content
+    description: "Stagging for Caption content"
+
+  - name: src_thumbnail
+    description: "Stagging for Thumbnail"
   # - name: my_first_dbt_model
   #   description: "A starter dbt model"
   #   columns:

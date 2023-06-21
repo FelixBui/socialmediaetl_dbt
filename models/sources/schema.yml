@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "normalized data models"
+    database: socialmediaetl-386712
+    schema: socialmediaetl_dwh
+    loaded_at_field: Timestamp
+
+    tags:
+      - source
+
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+
+    tables:
+      - name: raw_channel
+        identifier: Metadata_channel
+
+      - name: raw_video
+        identifier: Metadata_video
+
+      - name: raw_thumbnail
+        identifier: Metadata_thumbnail

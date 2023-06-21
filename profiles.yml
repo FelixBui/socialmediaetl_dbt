@@ -1,0 +1,14 @@
+socialmediaetl_dbt:
+  outputs:
+    dev:
+      dataset: socialmediaetl_dwh
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /Users/macos/socialmediaetl_dbt/.dbt/socialmediaetl-key.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: socialmediaetl-386712
+      threads: 1
+      type: bigquery
+  target: dev
