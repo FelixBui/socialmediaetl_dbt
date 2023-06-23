@@ -16,9 +16,9 @@ with raw as (
     {{source("raw","raw_caption")}}
 )
 SELECT
-    FORMAT_DATE('%Y%m%d', date_ingested) || '_' || caption_id AS caption_id_key,
-    caption_id,
-    video_id,
+    FORMAT_DATE('%Y%m%d', date_ingested) || '_' || lower(caption_id) AS caption_id_key,
+    lower(caption_id) as caption_id,
+    lower(video_id) as video_id,
     caption_language_id,
     FORMAT_DATE('%Y%m%d', date_ingested) AS date_id_key,
     language,
