@@ -1,7 +1,7 @@
 with raw as (
   select
     row_number() over(partition by ChannelID) as rn,
-    cast(ChannelID as string) as channel_id,
+    REGEXP_REPLACE(ChannelID, r'[^A-Za-z0-9]+', '') as channel_id,
     EXTRACT(
       DATE
       FROM
@@ -19,7 +19,8 @@ with raw as (
     {{ source('raw', 'raw_channel') }}
 )
 select
-  format_date('%Y%m%d', date_ingested) || '_' || channel_id as channel_id_key,
+  format_date('%Y%m%d', date_ingested) || '_' || lower(channel_id) as channel_id_key,
+  channel_id,
   format_date('%Y%m%d', date_ingested) date_id_key,
   url,
   channel_name,

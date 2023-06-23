@@ -2,8 +2,8 @@ WITH
 raw AS (
     SELECT
         ROW_NUMBER() OVER(PARTITION BY VideoID) AS rn,
-        CAST(VideoID AS STRING) AS video_id,
-        CAST(ChannelID AS STRING) AS channel_id,
+        REGEXP_REPLACE(VideoID, r'[^A-Za-z0-9]+', '') AS video_id,
+        REGEXP_REPLACE(ChannelID, r'[^A-Za-z0-9]+', '') AS channel_id,
         EXTRACT(
             DATE
             FROM
@@ -20,8 +20,8 @@ raw AS (
 )
 SELECT
     distinct FORMAT_DATE('%Y%m%d', date_ingested) || '_' || video_id AS video_id_key,
-    video_id,
-    FORMAT_DATE('%Y%m%d', date_ingested) || '_' || channel_id AS channel_id_key,
+    lower(video_id) as video_id,
+    channel_id,
     FORMAT_DATE('%Y%m%d', date_ingested) AS date_id_key,
     video_published_date,
     title,

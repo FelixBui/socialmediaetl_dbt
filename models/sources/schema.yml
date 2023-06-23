@@ -24,3 +24,6 @@ sources:
 
       - name: raw_thumbnail
         identifier: Metadata_thumbnail
+
+      - name: raw_caption
+        identifier: Metadata_caption

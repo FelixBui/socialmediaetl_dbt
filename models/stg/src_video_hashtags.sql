@@ -1,6 +1,6 @@
 with raw_hashtag AS (
   SELECT
-    CAST(VideoID AS STRING) AS video_id,
+    REGEXP_REPLACE(VideoID, r'[^A-Za-z0-9]+', '') AS video_id,
     REGEXP_EXTRACT_ALL(Title, r'#\w+') AS hashtags_title,
     REGEXP_EXTRACT_ALL(Description, r'#\w+') AS hashtags_description
   FROM
@@ -15,6 +15,7 @@ hashtags as(
     CROSS JOIN UNNEST(COALESCE(hashtags_title, hashtags_description)) AS hashtag
 )
 select
-  video_id hash_tag
+  lower(video_id) as video_id,
+  hashtag
 from
   hashtags
