@@ -2,23 +2,26 @@
 version: 2
 
 models:
-  - name: src_channel
-    description: "Stagging for Channel"
+  - name: dim_video
+    description: "Dimension for Video"
 
-  - name: src_video
-    description: "Stagging for Video"
+  - name: dim_video_hashtag
+    description: "Dimension for Video hashtags"
 
-  - name: src_video_hashtags
-    description: "Stagging for Video hashtags"
+  - name: dim_caption
+    description: "Dimension for Caption"
 
-  - name: src_caption
-    description: "Stagging for Caption"
+  - name: dim_caption_language
+    description: "Dimension for Caption language"
 
-  - name: src_caption_content
-    description: "Stagging for Caption content"
+  - name: dim_thumbnail
+    description: "Dimension for Thumbnail content"
 
-  - name: src_thumbnail
-    description: "Stagging for Thumbnail"
+  - name: dim_thumbnail_size
+    description: "Dimension for Thumbnail size"
+
+  - name: dim_channel
+    description: "Dimension for Channel"
   # - name: my_first_dbt_model
   #   description: "A starter dbt model"
   #   columns:
@@ -28,11 +31,3 @@ models:
   #         - unique
   #         - not_null
 
-  # - name: my_second_dbt_model
-  #   description: "A starter dbt model"
-  #   columns:
-  #     - name: id
-  #       description: "The primary key for this table"
-  #       tests:
-  #         - unique
-  #         - not_null

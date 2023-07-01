@@ -1,7 +1,9 @@
 
-# version: 2
+version: 2
 
-# models:
+models:
+  - name: fact_video
+    description: "fact table for ingested video"
   # - name: my_first_dbt_model
   #   description: "A starter dbt model"
   #   columns:
@@ -11,11 +13,3 @@
   #         - unique
   #         - not_null
 
-  # - name: my_second_dbt_model
-  #   description: "A starter dbt model"
-  #   columns:
-  #     - name: id
-  #       description: "The primary key for this table"
-  #       tests:
-  #         - unique
-  #         - not_null
